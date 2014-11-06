@@ -68,7 +68,7 @@ week | date | assignments | topics
 4 | Oct30 | Ycombinator's [startup ideas we'd like to fund](http://old.ycombinator.com/ideas.html) and Paul Graham's [start up funding](http://paulgraham.com/startupfunding.html) | shell scripting: io redirection/piping
 5 | Nov04 | | shell scripting: io redirection/piping
 5 | Nov06 | Patrick McKenzie [on salary negotiation for programmers](http://www.kalzumeus.com/2012/01/23/salary-negotiation/) | syscalls: io redirection/piping (`pipe`,`dup`)
-6 | Nov11 | hw1 | VETERANS DAY 
+6 | Nov11 | hw1 | VETERANS DAY HOLIDAY 
 6 | Nov13 | esr's thoughts on [using make](http://www.catb.org/esr/writings/taoup/html/ch15s04.html) | shell scripting: detailed makefiles
 7 | Nov18 | hw2 | syscalls: signal handling (`signal`,`sigaction`)
 7 | Nov20 | esr's classic [Master Foo](http://www.catb.org/esr/writings/taoup/html/unix_koans.html) | shell scripting: environment variables (`export`,`PATH`,`HOME`,`EDITOR`)
