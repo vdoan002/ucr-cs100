@@ -70,8 +70,8 @@ week | date | assignments | topics
 5 | Nov06 | Patrick McKenzie [on salary negotiation for programmers](http://www.kalzumeus.com/2012/01/23/salary-negotiation/) | syscalls: io redirection/piping (`pipe`,`dup`)
 6 | Nov11 | hw1 | VETERANS DAY HOLIDAY 
 6 | Nov13 | esr's thoughts on [using make](http://www.catb.org/esr/writings/taoup/html/ch15s04.html) | shell scripting: detailed makefiles
-7 | Nov18 | hw2 | syscalls: signal handling (`signal`,`sigaction`)
-7 | Nov20 | esr's classic [Master Foo](http://www.catb.org/esr/writings/taoup/html/unix_koans.html) | shell scripting: environment variables (`export`,`PATH`,`HOME`,`EDITOR`)
+7 | Nov18 |  | syscalls: signal handling (`signal`,`sigaction`)
+7 | Nov20 | hw2 & esr's classic [Master Foo](http://www.catb.org/esr/writings/taoup/html/unix_koans.html) | shell scripting: environment variables (`export`,`PATH`,`HOME`,`EDITOR`)
 8 | Nov25 | quiz | syscalls: environment variables (`getenv`,`setenv`)
 8 | Nov27 | | THANKSGIVING
 9 | Dec02 | hw3 | syscalls: pthreads
