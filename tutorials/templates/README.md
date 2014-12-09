@@ -99,3 +99,62 @@ and use the appropriate function for the appropriate value type. When you run th
 7
 ```
 We have just succesfully used a template! It wasn't that hard was it? Templates are as complicated as you want to make them. If you want to use a template for a more sophisticated function, then the writing the template for the function might get a little messy.
+
+##More Examples!
+As stated before, templates are only as complicated as you make them. Templates can be used for many things ranging from simple functions (like the one we just made) to classes with member functions.
+
+Here is a rough implementation of a `stack` data structure:
+```
+#include<iostream>
+using namespace std;
+
+template < typename Item >
+class stack {
+public:
+
+  class Node {
+  public:
+    Node(Item data, Node* n ) : data(data), next(n) {}
+    Item data;
+    Node* next;
+  };
+
+  stack () : ttop(0) {}   // misspelling to prevent name collision 
+
+  void push( Item x ) {
+    Node* temp = new Node(x,ttop);
+    ttop = temp;
+  }
+
+  void pop() {
+    Node* temp = ttop;
+    ttop = ttop->next;
+    delete temp;
+  } 
+
+  Item top() {      // standard spelling for the interface function
+    return ttop->data;
+  }
+
+private:
+
+  Node* ttop;      
+
+};
+
+int main() {
+  stack<int> s;
+  s.push(1);
+  s.push(2);
+  s.push(3);
+  cout << s.top() << endl;
+  s.pop();
+  cout << s.top() << endl;
+  s.pop();
+  cout << s.top() << endl;
+  s.pop();
+  return 0;
+}
+```
+
+The template conviently allows us to use this data structure for any data type.
