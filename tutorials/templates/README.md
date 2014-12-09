@@ -105,23 +105,20 @@ As stated before, templates are only as complicated as you make them. Templates 
 
 Here is a rough implementation of a `stack` data structure:
 ```
-#include<iostream>
-using namespace std;
-
-template < typename Item >
+template < typename T >
 class stack {
 public:
 
   class Node {
   public:
-    Node(Item data, Node* n ) : data(data), next(n) {}
-    Item data;
+    Node(T data, Node* n ) : data(data), next(n) {}
+    T data;
     Node* next;
   };
 
   stack () : ttop(0) {}   // misspelling to prevent name collision 
 
-  void push( Item x ) {
+  void push( T x ) {
     Node* temp = new Node(x,ttop);
     ttop = temp;
   }
@@ -132,7 +129,7 @@ public:
     delete temp;
   } 
 
-  Item top() {      // standard spelling for the interface function
+  T top() {
     return ttop->data;
   }
 
