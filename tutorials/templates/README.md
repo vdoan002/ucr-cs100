@@ -54,7 +54,11 @@ What would happen if we called the function like so:
 ```
     cout << double_num(2.7);
 ```
-First off, you wouldn't get a compiler warning that you're trying to use a double in place of an int (this could lead to some painful debugging later on!). The output of this would actually be **4** and not **5.4**. This is because the double used, **2.7**, would be _rounded down_ to **2** because it would be casted as an **int** in the function.
+First off, you wouldn't get a compiler warning that you're trying to use a double in place of an int (this could lead to some painful debugging later on!). The output of this would actually be:
+```
+4
+```
+This is because the double used, **2.7**, would be _rounded down_ to **2** because it would be casted as an **int** in the function.
 
 So how would you fix this? Well, if you're just using functions, you're going to have to write another function but for doubles this time:
 ```
