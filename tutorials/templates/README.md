@@ -159,6 +159,9 @@ int main() {
 ```
 
 The template conviently allows us to use this data structure for any data type.
+
+##Macros vs. Templates
+
 ##Conclusion
 By now, I hope that you have a good enough understanding of templates to use it on your own. Even though you may end up never using it, it is important to understand templates incase you see it in other programs.
 
