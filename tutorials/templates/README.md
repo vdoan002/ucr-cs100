@@ -2,14 +2,14 @@
 
 Most C++ programmers have little to no experience with templates. This is because of their complex nature. Most C++ programmers stay away from templates because: 
 
-  - Programmers have been succesfully programming without them
+  - Programmers have been successfully programming without them
   - Templates are difficult to learn
   - The effort it takes to learn is not rewarding enough to some programmers
 
-Templates are indeed quite difficult to learn at first, but if you put the time and effort into them, you can increase your programming effiency. The pros outweight the cons!
+Templates are indeed quite difficult to learn at first, but if you put the time and effort into them, you can increase your programming efficiency. The pros outweigh the cons!
 
 ## But aren't functions the same thing?
-Up until now, you been using functions in your programs (I hope!). 
+Up until now, you been using functions in your programs (I hope!).
 
 Indeed, functions are quite useful. They reduce your code's length because you avoid re-writing the same code over and over. For example, this simple code:
 ```
@@ -74,7 +74,7 @@ There, it's fixed! But that method just defeated the purpose of functions becaus
 But have no fear, there's a way to write the function once and have it be used by any type of value: **Templates**!
 
 ##What's a template?
-Let's rewrite the **double_num** function into something more effiecient with a template:
+Let's rewrite the **double_num** function into something more efficient with a template:
 ```
 template <typename TYPE>
 TYPE double_num(TYPE x){
@@ -102,7 +102,7 @@ and use the appropriate function for the appropriate value type. When you run th
 6
 7
 ```
-We have just succesfully used a template! It wasn't that hard was it? Templates are as complicated as you want to make them. If you want to use a template for a more sophisticated function, then the writing the template for the function might get a little messy.
+We have just successfully used a template! It wasn't that hard was it? Templates are as complicated as you want to make them. If you want to use a template for a more sophisticated function, then the writing the template for the function might get a little messy.
 
 ##More Examples!
 As stated before, templates are only as complicated as you make them. Templates can be used for many things ranging from simple functions (like the one we just made) to classes with member functions.
