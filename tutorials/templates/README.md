@@ -1,4 +1,4 @@
-#Templates and You:
+#Templates and You
 
 Most C++ programmers have little to no experience with templates. This is because of their complex nature. Most C++ programmers stay away from templates because: 
 
