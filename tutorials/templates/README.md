@@ -159,3 +159,7 @@ int main() {
 ```
 
 The template conviently allows us to use this data structure for any data type.
+##Conclusion
+By now, I hope that you have a good enough understanding of templates to use it on your own. Even though you may end up never using it, it is important to understand templates incase you see it in other programs.
+
+Just like programming, take templates one step at a time. Try not to dive in too deep and make a complicated program with templates. Doing so while you're still inexperienced may lead to seeing those hard to understand compiler errors. 
