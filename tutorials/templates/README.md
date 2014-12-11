@@ -160,7 +160,81 @@ int main() {
 
 The template conviently allows us to use this data structure for any data type.
 
-##Macros vs. Templates
+###Ok, so why should I use them?
+
+Well, you see... templates are usually just used to avoid repeating code while accounting for different types(Turing Complete), but they are also used to create type-safe containers.
+
+Let's say we want to implement a generic stack push function:
+```
+template <class T> // here we declare the template
+void mystack<T>::push(const T& data) // we use the template any time we want to store data in the container.
+{
+	top=...
+}	
+
+```
+
+As we can see, using templates are crucial when implementing containers because normal functions would not be able to handle multiple types.
+
+If we were to try to create a stack with a bunch of regular functions, then it would only be able to handle one type.
+
+###Templates Vs. Macros
+
+Aren't templates the same as macros besides being cleaner and easier to look at? They literally do the same thing! 
+
+*Macros substitute text definition into the code. They are strings that the compiler replaces with the defined value.
+
+Well, first of all, macros literally just copy and paste the text into your code. 
+One problem that arises when that happens is that if you want to post-increment a variable in the parameters, then the value is incremented however many times the variable is present in the macro. With templates, that problem is not apparent.
+
+For example:
+```
+#include <iostream>
+
+using namespace std;
+
+#define max1(a, b) (((a)>(b)) ? (a):(b))
+int main()
+{
+	int x=5;
+	int y=max1(x++,4);
+	cout << x << endl;
+}
+```
+The code above prints out a 7 because **x++** replaces **a** twice.
+
+With templates:
+```
+#include <iostream>
+
+using namespace std;
+template <typename TYPE>
+TYPE max1(TYPE a, TYPE b){
+    return (((a)>(b))?(a):(b));
+}
+int main()
+{
+        int x=5;
+        int y=max1(x++, 4);
+        cout << x << endl;
+}
+
+```
+This time the code prints out a 6!
+
+If we were to look at the value of **y** in these functions, the template function would still return a 5 because the **x** value is incremented AFTER the function executes.
+
+With the macro, the **y** value would be 6 because **x++** replaces **a** once before it is returned to **y**.
+
+
+*Templates are easier to debug with!
+
+First off, there is no way for macros to check parameter types. That could already be the source of a number of bugs in your program. As explained above, templates don't have this problem.
+
+For macros, during debugging, the messages will refer to the expanded macro instead of the definition. Since macros are expanded in the preprocessor, the compiler tends to not see them. **This can make the debugging process much harder because the function cannot be seen in the debugging process**
+Templates, however, will point to the exact location of the problem!
+
+The last thing about macros is that they cannot be stepped into with a debugger like gdb. Since they are based on text substitution, there isn't a way for them to be stepped into because they are not quite functions.
 
 ##Conclusion
 By now, I hope that you have a good enough understanding of templates to use it on your own. Even though you may end up never using it, it is important to understand templates incase you see it in other programs.
