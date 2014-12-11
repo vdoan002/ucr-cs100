@@ -8,34 +8,7 @@ Most C++ programmers have little to no experience with templates. This is becaus
 
 Templates are indeed quite difficult to learn at first, but if you put the time and effort into them, you can increase your programming efficiency. The pros outweigh the cons!
 
-## But aren't functions the same thing?
-Up until now, you been using functions in your programs (I hope!).
-
-Indeed, functions are quite useful. They reduce your code's length because you avoid re-writing the same code over and over. For example, this simple code:
-```
-int main(){
-    string name;
-    name = Mike;
-    cout << "Hello " << name << endl;
-    name = John;
-    cout << "Hello " << name << endl;
-    name = Doe;
-    cout << "Hello " << name << endl;
-}
-```
-can be shortened and more efficient by using a function:
-```
-void hello(string name){
-    cout << "Hello " << name << endl;
-}
-    
-int main(){
-    string name;
-    hello(Mike);
-    hello(John);
-    hello(Doe);
-}
-```
+## Taking Functions One Step Further
 
 Man, aren't functions useful? Through using a simple function, we simplified the program into neater code. 
 
