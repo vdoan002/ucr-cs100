@@ -77,7 +77,7 @@ and use the appropriate function for the appropriate value type. When you run th
 ```
 We have just successfully used a template! It wasn't that hard was it? Templates are as complicated as you want to make them. If you want to use a template for a more sophisticated function, then the writing the template for the function might get a little messy.
 
-##More Examples!
+##Case Study: Vectors
 As stated before, templates are only as complicated as you make them. Templates can be used for many things ranging from simple functions (like the one we just made) to classes with member functions.
 
 You may have been using templates without even noticing it! The Standard Template Library provides many containers. For example, **vectors** can be used to store any type of data type. This is because they use templates!
@@ -96,10 +96,11 @@ Vectors actually have a second parameter that isn't talked about often.
 ```
 class Alloc = allocator<T>
 ```
-The second parameter is an allocator class that defines how memory will be allocated if the vector needs more memory. In most cases, you wouldn't need to worry about it because it is defaultly set by the template. However, in certain situations, you would want the vector to use a different type of method of allocating memory, such as programming for machines that have small memory.
+The second parameter is an allocator class that defines how memory will be allocated if the vector needs more memory. In most cases, you wouldn't need to worry about it because it is set by default. 
+
+However, in certain situations, you would want the vector to use a different type of method of allocating memory, such as programming for machines that have small memory.
 
 In summary, the Standard Template Library uses templates to allow programmers to use the containers with flexability.
-
 
 ##Ok, so why should I use them?
 
@@ -115,7 +116,7 @@ void mystack<T>::push(const T& data) // we use the template any time we want to 
 
 ```
 
-As we can see, using templates are crucial when implementing containers because normal functions would not be able to handle multiple types.
+As you can see, using templates are crucial when implementing containers because normal functions would not be able to handle multiple types.
 
 If we were to try to create a stack with a bunch of regular functions, then it would only be able to handle one type.
 
@@ -244,21 +245,6 @@ Man macros sure have a lot of dangers! You may be wandering, why even use them? 
 
 Althought templates are more safe, there is a time and place where macros can come in handy.
 
-
-The include guards...In CS 12 you started learning how to link multiple c++ files together. To make sure no header files were included multiple times you learned about the #ifndef and #endif directives.
-
-```
-#ifndef MYHEADER_H
-#define MYHEADER_H
-...
-
-#endif
-```
-
-Look familiar? You used these inclusion guards to make sure the compiler will not be exposed to any duplicate definitions throughout multiple files.
-The #ifndef directive first tests to see if the definition has already been made by another header file included in the same program. 
-If the definition already exists, the compiler ignores the duplicate definition.
-
 Another place to use macros is you can define a foreach macro to make your code look more readable.
 
 ```
@@ -275,6 +261,6 @@ The [boost library](http://www.boost.org/doc/libs/1_57_0/doc/html/foreach.html) 
 
 
 ##Conclusion
-By now, I hope that you have a good enough understanding of templates to use it on your own. Even though you may end up never using it, it is important to understand templates incase you see it in other programs.
+By now, I hope that you have a good enough understanding of templates to use it on your own. Even though you may end up never using it, it is important to understand the structure of templates as you may see them in other programs.
 
-Just like programming, take templates one step at a time. Try not to dive in too deep and make a complicated program with templates. Doing so while you're still inexperienced may lead to seeing those hard to understand compiler errors. 
+Just like programming, take templates one step at a time. Try not to dive in too deep and make a complicated program with templates. Doing so while you're still inexperienced may lead to seeing those hard to understand compiler errors. Even with simple templates, you may still run into compiler errors. However, fixing those errors will allow you to be more comfortable with templates.
