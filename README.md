@@ -71,8 +71,13 @@ week | date | assignments | topics
 6 | Nov11 | hw1 | VETERANS DAY HOLIDAY 
 6 | Nov13 | esr's thoughts on [using make](http://www.catb.org/esr/writings/taoup/html/ch15s04.html) | shell scripting: detailed makefiles
 7 | Nov18 |  | syscalls: signal handling (`signal`,`sigaction`)
+<<<<<<< HEAD
 7 | Nov20 | hw2 and esr's classic [Master Foo](http://www.catb.org/esr/writings/taoup/html/unix_koans.html) | shell scripting: environment variables (`export`,`PATH`,`HOME`,`EDITOR`)
 8 | Nov25 | | syscalls: environment variables (`getenv`,`setenv`)
+=======
+7 | Nov20 | hw2 & esr's classic [Master Foo](http://www.catb.org/esr/writings/taoup/html/unix_koans.html) | shell scripting: environment variables (`export`,`PATH`,`HOME`,`EDITOR`)
+8 | Nov25 | quiz | syscalls: environment variables (`getenv`,`setenv`)
+>>>>>>> 1ab12370cec6606dda1c0ba4673dfb165c85737c
 8 | Nov27 | | THANKSGIVING
 9 | Dec02 | hw3 | syscalls: pthreads
 9 | Dec04 | esr's thoughts on [flaws with unix](http://www.catb.org/esr/writings/taoup/html/ch20s03.html) | syscalls: sockets
