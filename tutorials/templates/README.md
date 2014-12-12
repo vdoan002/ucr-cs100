@@ -67,8 +67,8 @@ cout << double_num(3.5) << endl;
 ```
 The compiler will see that you are calling a function-template and would create two functions:
 ```
-int double_num(int x){}
-double double_num(double x){}
+int double_num(int x)
+double double_num(double x)
 ```
 and use the appropriate function for the appropriate value type. When you run the program, you will get exactly what you wanted:
 ```
@@ -80,58 +80,26 @@ We have just successfully used a template! It wasn't that hard was it? Templates
 ##More Examples!
 As stated before, templates are only as complicated as you make them. Templates can be used for many things ranging from simple functions (like the one we just made) to classes with member functions.
 
-Here is a rough implementation of a `stack` data structure:
+You may have been using templates without even noticing it! The Standard Template Library provides many containers. For example, **vectors** can be used to store any type of data type. This is because they use templates!
+
+Let's take a look at vectors:
 ```
-template < typename T >
-class stack {
-public:
-
-  class Node {
-  public:
-    Node(T data, Node* n ) : data(data), next(n) {}
-    T data;
-    Node* next;
-  };
-
-  stack () : ttop(0) {}   // misspelling to prevent name collision 
-
-  void push( T x ) {
-    Node* temp = new Node(x,ttop);
-    ttop = temp;
-  }
-
-  void pop() {
-    Node* temp = ttop;
-    ttop = ttop->next;
-    delete temp;
-  } 
-
-  T top() {
-    return ttop->data;
-  }
-
-private:
-
-  Node* ttop;      
-
-};
-
-int main() {
-  stack<int> s;
-  s.push(1);
-  s.push(2);
-  s.push(3);
-  cout << s.top() << endl;
-  s.pop();
-  cout << s.top() << endl;
-  s.pop();
-  cout << s.top() << endl;
-  s.pop();
-  return 0;
-}
+template < class T, class Alloc = allocator<T> > class vector;
 ```
+If you're familiar with vectors, then the first paramater should be understandable. `class T` is the type of data you are storing in the vector (such as `int` or `string`).
 
-The template conviently allows us to use this data structure for any data type.
+If you wanted a vector of doubles, then you would call it like so:
+```
+vector<double> numList;
+```
+Vectors actually have a second parameter that isn't talked about often. 
+```
+class Alloc = allocator<T>
+```
+The second parameter is an allocator class that defines how memory will be allocated if the vector needs more memory. In most cases, you wouldn't need to worry about it because it is defaultly set by the template. However, in certain situations, you would want the vector to use a different type of method of allocating memory, such as programming for machines that have small memory.
+
+In summary, the Standard Template Library uses templates to allow programmers to use the containers with flexability.
+
 
 ##Ok, so why should I use them?
 
