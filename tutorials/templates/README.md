@@ -120,72 +120,6 @@ As you can see, using templates are crucial when implementing containers because
 
 If we were to try to create a stack with a bunch of regular functions, then it would only be able to handle one type.
 
-##Templates vs. Macros
-
-Aren't templates the same as macros besides being cleaner and easier to look at? They literally do the same thing! 
-
-######*Macros substitute text definition into the code. They are strings that the compiler replaces with the defined value.
-
-Well, first of all, macros literally just copy and paste the text into your code. 
-One problem that arises when that happens is that if you want to post-increment a variable in the parameters, then the value is incremented however many times the variable is present in the macro. With templates, that problem is not apparent.
-
-For example:
-```
-#include <iostream>
-
-using namespace std;
-
-#define max1(a, b) (((a)>(b)) ? (a):(b))
-int main()
-{
-	int x=5;
-	int y=max1(x++,4);
-	cout << x << endl;
-}
-```
-The code above would put `x++` and `4` in place of `a` and `b`:
-```
-((x++)>(4)) ? (x++):(4))
-```
-Because `x++` is in the function twice, it would be incremented twice, leading the output to be
-```
-7
-```
-
-With templates:
-```
-#include <iostream>
-
-using namespace std;
-template <typename TYPE>
-TYPE max1(TYPE a, TYPE b){
-    return (((a)>(b))?(a):(b));
-}
-int main()
-{
-        int x=5;
-        int y=max1(x++, 4);
-        cout << x << endl;
-}
-```
-This time the code prints out
-```
-6
-```
-
-If we were to look at the value of **y** in these functions, the template function would still return a 5 because the **x** value is incremented AFTER the function executes.
-
-With the macro, the **y** value would be 6 because **x++** replaces **a** once before it is returned to **y**.
-
-##Templates are easier to debug with!
-
-First off, there is no way for macros to check parameter types. That could already be the source of a number of bugs in your program. As explained above, templates don't have this problem.
-
-For macros, during debugging, the messages will refer to the expanded macro instead of the definition. Since macros are expanded in the preprocessor, the compiler tends to not see them. **This can make the debugging process much harder because the function cannot be seen in the debugging process**
-Templates, however, will point to the exact location of the problem!
-
-The last thing about macros is that they cannot be stepped into with a debugger like gdb. Since they are based on text substitution, there isn't a way for them to be stepped into because they are not quite functions.
-
 ###What about macros?
 
 Another code generation tool are Macros. Unlike templates that run at compile time, macros are a more primitive type and are parsed by the preprocessor which only replaces text.
@@ -255,6 +189,73 @@ Another place to use macros is you can define a foreach macro to make your code 
 foreach(cookies, i)
     printf("Cookie: %s", cookies[i]);
 ```
+
+##Templates vs. Macros
+
+Aren't templates the same as macros besides being cleaner and easier to look at? They literally do the same thing! 
+
+######*Macros substitute text definition into the code. They are strings that the compiler replaces with the defined value.
+
+Well, first of all, macros literally just copy and paste the text into your code. 
+One problem that arises when that happens is that if you want to post-increment a variable in the parameters, then the value is incremented however many times the variable is present in the macro. With templates, that problem is not apparent.
+
+For example:
+```
+#include <iostream>
+
+using namespace std;
+
+#define max1(a, b) (((a)>(b)) ? (a):(b))
+int main()
+{
+	int x=5;
+	int y=max1(x++,4);
+	cout << x << endl;
+}
+```
+The code above would put `x++` and `4` in place of `a` and `b`:
+```
+((x++)>(4)) ? (x++):(4))
+```
+Because `x++` is in the function twice, it would be incremented twice, leading the output to be
+```
+7
+```
+
+With templates:
+```
+#include <iostream>
+
+using namespace std;
+template <typename TYPE>
+TYPE max1(TYPE a, TYPE b){
+    return (((a)>(b))?(a):(b));
+}
+int main()
+{
+        int x=5;
+        int y=max1(x++, 4);
+        cout << x << endl;
+}
+```
+This time the code prints out
+```
+6
+```
+
+If we were to look at the value of **y** in these functions, the template function would still return a 5 because the **x** value is incremented AFTER the function executes.
+
+With the macro, the **y** value would be 6 because **x++** replaces **a** once before it is returned to **y**.
+
+##Templates are easier to debug with!
+
+First off, there is no way for macros to check parameter types. That could already be the source of a number of bugs in your program. As explained above, templates don't have this problem.
+
+For macros, during debugging, the messages will refer to the expanded macro instead of the definition. Since macros are expanded in the preprocessor, the compiler tends to not see them. **This can make the debugging process much harder because the function cannot be seen in the debugging process**
+Templates, however, will point to the exact location of the problem!
+
+The last thing about macros is that they cannot be stepped into with a debugger like gdb. Since they are based on text substitution, there isn't a way for them to be stepped into because they are not quite functions.
+
 
 The [boost library](http://www.boost.org/doc/libs/1_57_0/doc/html/foreach.html) has already thought of a really good foreach macro implementation so consider using theirs if you are ever in need of a foreach macro.
 
